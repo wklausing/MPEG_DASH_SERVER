@@ -1,0 +1,17 @@
+extends layout
+
+block content
+
+    script(src="/javascripts/dash.all.min.js")
+
+    h1 Server2
+    p Welcome to awesome #{title}
+
+    video(id="videoPlayer", width='480', height='360', autoplay='', controls="true")
+
+    script.
+        (function(){
+            var url = "/video/BigBunnyAkamai/bbb_30fps.mpd"
+            var player = dashjs.MediaPlayer().create();
+            player.initialize(document.querySelector("#videoPlayer"), url, true);
+        })();
